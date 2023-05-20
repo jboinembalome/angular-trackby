@@ -1,0 +1,14 @@
+<button mat-raised-button color="primary" (click)="resetUsers()">
+    Refresh
+</button>
+
+<mat-list role="list">
+    <!-- You can try to remove the trackBy function and click on the Refresh button. 
+        If you inspect the mat-list and mat-list-item elements in your browser, you 
+        will see that the elements are refreshed. With the trackBy function this 
+        is no longer the case.
+     -->
+    <mat-list-item role="listitem" *ngFor="let user of users;">
+        {{ user.name }}
+    </mat-list-item>
+</mat-list>
