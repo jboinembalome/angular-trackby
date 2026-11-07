@@ -16,18 +16,18 @@ export class Users {
   /**
    * Reloads the same users as new objects, like a refresh from an API.
    */
-  refresh(): void {
+  protected refresh(): void {
     this.users.set(this.usersService.getUsers());
   }
 
   /**
    * Adds a new user at the top of the list. The other users keep their objects.
    */
-  addFirst(): void {
+  protected addFirst(): void {
     this.users.update((users) => [{ id: this.nextId++, name: 'Rosa Quill' }, ...users]);
   }
 
-  clear(): void {
+  protected clear(): void {
     this.users.set([]);
   }
 }

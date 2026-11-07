@@ -1,6 +1,6 @@
 # Angular trackBy
 
-Source code used in the article [Enhancing User Experience with TrackBy in Angular](https://blouppy.com/blog/2023-05-19-enhancing-ue-trackby-angular/) on the [Blouppy](https://blouppy.com) website.
+Source code used in the article [Enhancing User Experience with track in Angular](https://blouppy.com/blog/2023-05-19-enhancing-ue-trackby-angular/) on the [Blouppy](https://blouppy.com) website.
 
 The page renders the same list of users three times with `@for`, each with a different `track` expression
 (`user.id`, `$index` and the object itself), and three buttons:
