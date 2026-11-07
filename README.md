@@ -1,27 +1,42 @@
-# AngularTrackby
+# Angular trackBy
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Source code used in the article [Enhancing User Experience with TrackBy in Angular](https://blouppy.com/blog/2023-05-19-enhancing-ue-trackby-angular/) on the [Blouppy](https://blouppy.com) website.
 
-## Development server
+The page renders the same list of users three times with `@for`, each with a different `track` expression
+(`user.id`, `$index` and the object itself), and three buttons:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Refresh** reloads the users as new objects with the same ids, as an API call would.
+- **Add a user at the top** prepends one user and keeps the other objects.
+- **Clear** empties the list to show the `@empty` block.
 
-## Code scaffolding
+`npm run dom-changes` builds nothing itself: after `npm run build`, it serves `dist/`, clicks each button in
+Chromium (Playwright) and prints how many `<li>` elements each list created and removed, and how many text
+nodes it wrote, as seen by a `MutationObserver`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project type
 
-## Build
+- Angular project: standalone components, signals, built-in control flow, zoneless change detection.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Project version
 
-## Running unit tests
+- Angular 22. This project was generated with [Angular CLI](https://angular.dev/tools/cli) version 22.2.6.
+- Node.js 22.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run it
 
-## Running end-to-end tests
+```bash
+npm ci
+npm start                       # ng serve, then open http://localhost:4200/
+npx ng test --watch=false       # unit tests (Vitest)
+npm run build
+npx playwright install chromium # once, if Playwright has no browser yet
+npm run dom-changes             # count the DOM work of each track expression
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Give a Star! :star:
 
-## Further help
+If you like or are using this project please give it a star. Thanks!
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Support this project! :pray:
+
+If you want to help me to maintain this project or add improvements, it would be a pleasure!
