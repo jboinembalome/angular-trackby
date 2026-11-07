@@ -1,0 +1,40 @@
+<div class="actions">
+  <button type="button" (click)="refresh()">Refresh</button>
+  <button type="button" (click)="addFirst()">Add a user at the top</button>
+  <button type="button" (click)="clear()">Clear</button>
+</div>
+
+<div class="lists">
+  <section>
+    <h2><code>track user.id</code></h2>
+    <ul id="by-id">
+      @for (user of users(); track user.id) {
+        <li>{{ user.name }}</li>
+      } @empty {
+        <li class="empty">No users</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2><code>track $index</code></h2>
+    <ul id="by-index">
+      @for (user of users(); track $index) {
+        <li>{{ user.name }}</li>
+      } @empty {
+        <li class="empty">No users</li>
+      }
+    </ul>
+  </section>
+
+  <section>
+    <h2><code>track user</code></h2>
+    <ul id="by-identity">
+      @for (user of users(); track user) {
+        <li>{{ user.name }}</li>
+      } @empty {
+        <li class="empty">No users</li>
+      }
+    </ul>
+  </section>
+</div>
